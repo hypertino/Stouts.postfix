@@ -35,7 +35,7 @@
 - name: Configure postfix local user relay
   template: src=virtual.j2 dest=/etc/postfix/virtual-pcre owner=root group=root mode=0644
   notify: postfix restart
-  when: postfix_local_user_relay_address != ""
+  when: postfix_local_user_relay_address != "" or postfix_domain_user_relay_address != ""
 
 - name: Configure postfix sender canonical maps
   template: src=sender_canonical_maps.j2 dest=/etc/postfix/sender_canonical_maps

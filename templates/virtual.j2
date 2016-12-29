@@ -1,1 +1,6 @@
+{% if postfix_local_user_relay_address != "" %}
 /.+@localhost/ {{postfix_local_user_relay_address}}
+{% endif %}
+{% if postfix_domain_user_relay_address != "" %}
+/.+@{{postfix_mydomain}}/ {{postfix_domain_user_relay_address}}
+{% endif %}
